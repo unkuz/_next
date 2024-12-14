@@ -2,14 +2,13 @@ import { useGlobalStore } from "@/store/global";
 import { useEffect } from "react";
 
 export const useSyncDarkMode = () => {
-  const globalS = useGlobalStore();
-  const darkMode = globalS.dark;
+  const darkMode = useGlobalStore((state) => state.dark);
 
   const handle = () => {
     document.documentElement.classList.toggle("dark", darkMode);
   };
 
   useEffect(() => {
-    handle();
+    // handle();
   }, [darkMode]);
 };
